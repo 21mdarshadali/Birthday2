@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Scheherazade+New:wght@400;700&amp;family=Playfair+Display:wght@400;600;700;800&amp;family=Cormorant+Garamond:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100%) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-120%) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes crescentGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes lanternSwing {
+
+            0%,
+            100% {
+                transform: rotate(-3deg);
+            }
+
+            50% {
+                transform: rotate(3deg);
+            }
+        }
+
+        .float-particle {
+            position: absolute;
+            animation: floatUp linear infinite;
+            pointer-events: none;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #d4af37, #f5e6a3, #d4af37, #b8941f, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .card-envelope {
+            animation: scaleIn 1s ease-out 0.3s both;
+        }
+
+        .greeting-anim {
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .msg-anim {
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .divider-anim {
+            animation: fadeInUp 0.8s ease-out 1.5s both;
+        }
+
+        .sender-anim {
+            animation: fadeInUp 1s ease-out 1.8s both;
+        }
+
+        .nick-anim {
+            animation: fadeInUp 0.8s ease-out 2.1s both;
+        }
+
+        .star-twinkle {
+            animation: twinkle ease-in-out infinite;
+        }
+
+        .crescent-glow {
+            animation: crescentGlow 3s ease-in-out infinite;
+        }
+
+        .lantern {
+            animation: lanternSwing 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .ornament-left {
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+
+        .ornament-right {
+            animation: slideInRight 1s ease-out 0.5s both;
+        }
+
+        .card-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .pattern-bg {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+        }
+
+        .geometric-border {
+            background: repeating-linear-gradient(90deg,
+                    #d4af37 0px, #d4af37 8px,
+                    transparent 8px, transparent 16px);
+            height: 2px;
+            opacity: 0.5;
+        }
+
+        .inner-card-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='none' stroke='%23d4af37' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
+        }
+    </style>
+    <style>
+        body {
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .typing::after {
+            content: "|";
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes floatTeddy {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        #teddyBox.playing {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px gold);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.9));
+            }
+        }
+
+        .heart-animate {
+            animation: heartBeat 1.2s infinite ease-in-out,
+                heartGlow 2.5s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        .heart-animate:hover {
+            transform: scale(1.3);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body class="h-full">
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app-wrapper" class="w-full min-h-screen overflow-y-auto"
+        style="background: linear-gradient(160deg, #0a1628 0%, #122240 30%, #0d1a30 60%, #091420 100%);">
+        <!-- Floating particles container -->
+        <div id="particles" class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: 1;"></div>
+        <!-- Stars -->
+        <div class="fixed inset-0 pointer-events-none" style="z-index: 0;">
+            <div class="star-twinkle absolute w-1 h-1 rounded-full bg-yellow-200"
+                style="top: 8%; left: 15%; animation-duration: 2.5s;"></div>
+            <div class="star-twinkle absolute w-1.5 h-1.5 rounded-full bg-yellow-100"
+                style="top: 12%; left: 75%; animation-duration: 3.2s; animation-delay: 0.5s;"></div>
+            <div class="star-twinkle absolute w-1 h-1 rounded-full bg-yellow-200"
+                style="top: 25%; left: 90%; animation-duration: 2.8s; animation-delay: 1s;"></div>
+            <div class="star-twinkle absolute w-0.5 h-0.5 rounded-full bg-yellow-300"
+                style="top: 5%; left: 45%; animation-duration: 3.5s; animation-delay: 0.3s;"></div>
+            <div class="star-twinkle absolute w-1 h-1 rounded-full bg-yellow-100"
+                style="top: 18%; left: 30%; animation-duration: 2.2s; animation-delay: 1.5s;"></div>
+            <div class="star-twinkle absolute w-0.5 h-0.5 rounded-full bg-yellow-200"
+                style="top: 15%; left: 60%; animation-duration: 4s; animation-delay: 0.8s;"></div>
+            <div class="star-twinkle absolute w-1 h-1 rounded-full bg-amber-200"
+                style="top: 3%; left: 85%; animation-duration: 3s; animation-delay: 2s;"></div>
+        </div><!-- Main content -->
+        <div class="relative flex flex-col items-center justify-center min-h-full px-4 py-10" style="z-index: 2;">
+            <!-- Crescent Moon & Stars top decoration -->
+            <div class="crescent-glow mb-6 flex justify-center">
+
+                <div style="
+        width: 90px;
+        height: 90px;
+        border: 2px solid rgba(212,175,55,0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    ">
+
+                    <!-- Teddy -->
+                    <div id="teddyBox" style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            animation: floatTeddy 3s ease-in-out infinite;
+        ">
+                        <div style="font-size: 28px;">🧸</div>
+
+                        <div style="
+                background: rgba(0,0,0,0.7);
+                color: white;
+                padding: 4px 10px;
+                border-radius: 10px;
+                font-size: 11px;
+                margin-top: 3px;
+                white-space: nowrap;
+            ">
+                            Tap for Music 🎵
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Lanterns -->
+            <div class="absolute top-4 left-6 lantern opacity-60 hidden sm:block" style="animation-delay: 0s;">
+                <svg width="30" height="55" viewbox="0 0 30 55">
+                    <line x1="15" y1="0" x2="15" y2="10" stroke="#d4af37" stroke-width="1" />
+                    <ellipse cx="15" cy="30" rx="10" ry="18" fill="none" stroke="#d4af37" stroke-width="1"
+                        opacity="0.6" />
+                    <ellipse cx="15" cy="30" rx="6" ry="14" fill="#d4af37" opacity="0.15" />
+                    <circle cx="15" cy="30" r="3" fill="#f5e6a3" opacity="0.5" />
+                </svg>
+            </div>
+            <div class="absolute top-4 right-6 lantern opacity-60 hidden sm:block" style="animation-delay: 1.5s;">
+                <svg width="30" height="55" viewbox="0 0 30 55">
+                    <line x1="15" y1="0" x2="15" y2="10" stroke="#d4af37" stroke-width="1" />
+                    <ellipse cx="15" cy="30" rx="10" ry="18" fill="none" stroke="#d4af37" stroke-width="1"
+                        opacity="0.6" />
+                    <ellipse cx="15" cy="30" rx="6" ry="14" fill="#d4af37" opacity="0.15" />
+                    <circle cx="15" cy="30" r="3" fill="#f5e6a3" opacity="0.5" />
+                </svg>
+            </div><!-- Arabic Calligraphy style header -->
+            <div class="greeting-anim text-center mb-2">
+                <p class="text-amber-300 opacity-70 text-sm tracking-widest uppercase"
+                    style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.3em;">~ Blessed Occasion ~</p>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="card-envelope card-glow w-full max-w-lg rounded-3xl overflow-hidden"
+                style="background: linear-gradient(170deg, #1a2744 0%, #152036 50%, #111c30 100%); border: 1px solid rgba(212, 175, 55, 0.25);">
+                <!-- Card top ornamental border -->
+                <div class="geometric-border w-full"></div>
+                <div class="inner-card-pattern pattern-bg relative px-6 sm:px-10 py-10"><!-- Ornamental corners -->
+                    <div class="ornament-left absolute top-4 left-4 opacity-40">
+                        <svg width="40" height="40" viewbox="0 0 40 40">
+                            <path d="M0 40 Q0 0 40 0" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                            <path d="M5 40 Q5 10 35 5" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.5" />
+                            <circle cx="8" cy="8" r="2" fill="#d4af37" opacity="0.6" />
+                        </svg>
+                    </div>
+                    <div class="ornament-right absolute top-4 right-4 opacity-40">
+                        <svg width="40" height="40" viewbox="0 0 40 40" style="transform: scaleX(-1);">
+                            <path d="M0 40 Q0 0 40 0" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                            <path d="M5 40 Q5 10 35 5" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.5" />
+                            <circle cx="8" cy="8" r="2" fill="#d4af37" opacity="0.6" />
+                        </svg>
+                    </div><!-- Main Greeting -->
+                    <div class="greeting-anim text-center mt-4">
+                        <h1 id="el-greeting" class="shimmer-text text-5xl sm:text-6xl font-bold leading-tight"
+                            style="font-family: 'Playfair Display', serif;">Eid Mubarak</h1>
+                        <div class="flex items-center justify-center gap-3 mt-3 opacity-50"><span
+                                class="block w-8 h-px bg-amber-400"></span> <span
+                                class="text-amber-400 text-lg">✦</span> <span
+                                class="block w-8 h-px bg-amber-400"></span>
+                        </div>
+                    </div><!-- Arabic text -->
+                    <div class="msg-anim text-center mt-5">
+                        <p class="text-amber-200 opacity-60 text-2xl" style="font-family: 'Scheherazade New', serif;">
+                            عيد مبارك</p>
+                    </div><!-- Mosque silhouette divider -->
+                    <div class="divider-anim flex justify-center my-6">
+                        <svg width="220" height="50" viewbox="0 0 220 50" class="opacity-30"><!-- Central dome -->
+                            <path d="M90 50 L90 25 Q110 5 130 25 L130 50" fill="none" stroke="#d4af37"
+                                stroke-width="1" /> <!-- Left minaret -->
+                            <rect x="70" y="20" width="6" height="30" fill="none" stroke="#d4af37" stroke-width="0.8" />
+                            <path d="M69 20 L73 12 L77 20" fill="none" stroke="#d4af37" stroke-width="0.8" />
+                            <!-- Right minaret -->
+                            <rect x="144" y="20" width="6" height="30" fill="none" stroke="#d4af37"
+                                stroke-width="0.8" />
+                            <path d="M143 20 L147 12 L151 20" fill="none" stroke="#d4af37" stroke-width="0.8" />
+                            <!-- Side domes -->
+                            <path d="M77 50 L77 35 Q83 25 90 35 L90 50" fill="none" stroke="#d4af37"
+                                stroke-width="0.6" />
+                            <path d="M130 50 L130 35 Q137 25 143 35 L143 50" fill="none" stroke="#d4af37"
+                                stroke-width="0.6" /> <!-- Ground line -->
+                            <line x1="50" y1="50" x2="170" y2="50" stroke="#d4af37" stroke-width="0.5" />
+                            <!-- Small crescents on top -->
+                            <circle cx="73" cy="10" r="2" fill="#d4af37" opacity="0.6" />
+                            <circle cx="147" cy="10" r="2" fill="#d4af37" opacity="0.6" />
+                            <circle cx="110" cy="7" r="3" fill="#d4af37" opacity="0.6" />
+                        </svg>
+                    </div><!-- Message -->
+                    <div class="msg-anim text-center px-2">
+                        <p id="el-message" class="text-base sm:text-lg leading-relaxed"
+                            style="font-family: 'Cormorant Garamond', serif; color: #c5cfe0;"><br></p>
+                        <!-- <div
+                            style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 16px 0; color: #c5a36d;">
+                            <svg width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M4 12c0-1.657 2.686-3 6-3s6 1.343 6 3M14 12c0-1.657 2.686-3 6-3s6 1.343 6 3M4 12v6c0 1.657 2.686 3 6 3s6-1.343 6-3v-6M14 12v6c0 1.657 2.686 3 6 3s6-1.343 6-3v-6"
+                                    style="color: #d4af37;" />
+                                <path d="M8 9v-2M16 9v-2M20 9v-2" style="color: #f5e6a3; stroke-width: 1.5;" />
+                            </svg>
+                        </div> -->
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-top:12px; gap:6px;">
+
+                            <svg class="heart-animate" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#d4af37" stroke-width="1.5">
+                                <path d="M12 21s-6-4.35-6-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.65-6 9-6 9z" />
+                            </svg>
+
+                            <p style="color:#d4af37; font-size:1.1em; letter-spacing:0.05em;">
+                                ❤️Sending you the warmest hug
+                            </p>
+
+                        </div>
+                    </div><!-- Decorative element -->
+                    <div class="divider-anim flex items-center justify-center gap-3 my-6"><span class="block w-12 h-px"
+                            style="background: linear-gradient(90deg, transparent, #d4af37);"></span>
+                        <svg width="20" height="20" viewbox="0 0 20 20" class="opacity-60">
+                            <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#d4af37" />
+                        </svg><span class="block w-12 h-px"
+                            style="background: linear-gradient(90deg, #d4af37, transparent);"></span>
+                    </div><!-- Sender info -->
+                    <div class="sender-anim text-center">
+                        <p class="text-amber-300 opacity-50 text-xs tracking-widest uppercase mb-2"
+                            style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.25em;">With love &amp;
+                            prayers from</p>
+                        <h2 id="el-sender" class="text-2xl sm:text-3xl font-bold"
+                            style="font-family: 'Playfair Display', serif; color: #d4af37;">MD ARSHAD ALI</h2>
+                    </div>
+                    <div class="nick-anim text-center mt-2"><span
+                            class="inline-block px-5 py-1.5 rounded-full text-sm tracking-wider"
+                            style="font-family: 'Cormorant Garamond', serif; color: #f5e6a3; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(212, 175, 55, 0.08); letter-spacing: 0.15em;">
+                            ~ <span id="el-nick">Prince</span> ~ </span>
+                    </div><!-- Bottom ornamental corners -->
+                    <div class="ornament-left absolute bottom-4 left-4 opacity-40" style="transform: scaleY(-1);">
+                        <svg width="40" height="40" viewbox="0 0 40 40">
+                            <path d="M0 40 Q0 0 40 0" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                            <circle cx="8" cy="8" r="2" fill="#d4af37" opacity="0.6" />
+                        </svg>
+                    </div>
+                    <div class="ornament-right absolute bottom-4 right-4 opacity-40"
+                        style="transform: scaleY(-1) scaleX(-1);">
+                        <svg width="40" height="40" viewbox="0 0 40 40">
+                            <path d="M0 40 Q0 0 40 0" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                            <circle cx="8" cy="8" r="2" fill="#d4af37" opacity="0.6" />
+                        </svg>
+                    </div>
+                </div><!-- Card bottom ornamental border -->
+                <div class="geometric-border w-full"></div>
+            </div><!-- Footer dua -->
+            <div class="nick-anim text-center mt-8 mb-4">
+                <p class="text-amber-200 opacity-30 text-xs tracking-wider"
+                    style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.2em;">✦ May Allah accept our
+                    prayers ✦</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const symbols = ['✦', '✧', '⋆', '☪', '∗', '·'];
+            const count = window.innerWidth < 640 ? 10 : 20;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('span');
+                p.className = 'float-particle';
+                p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                p.style.left = Math.random() * 100 + '%';
+                p.style.fontSize = (Math.random() * 10 + 6) + 'px';
+                p.style.color = '#d4af37';
+                p.style.opacity = Math.random() * 0.4 + 0.1;
+                p.style.animationDuration = (Math.random() * 12 + 10) + 's';
+                p.style.animationDelay = (Math.random() * 15) + 's';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+
+        // Element SDK
+        const defaultConfig = {
+            greeting_title: 'Eid Mubarak',
+            message_text: 'Assalamualaikum,\n\nOn this blessed occasion of Eid, my heart reaches out to you with warmth and deep affection. Though distance separates us, the bond we share remains unbreakable. You hold a cherished place in my life, and your presence is truly missed.\n\nIn every moment of this Eid celebration, I think of you and wish you were here to share the joy. Your smile, your laughter, your kindness - these are the treasures I miss most.\n\nMay Allah bless you with endless happiness, good health, and success. May this Eid bring you closer to your dreams and fill your life with countless blessings.\n\nUntil we meet again, know that you are always in my heart and in my prayers.',
+            sender_name: 'MD ARSHAD ALI',
+            nick_name: 'Prince',
+            background_color: '#0a1628',
+            card_color: '#1a2744',
+            text_color: '#c5cfe0',
+            accent_color: '#d4af37',
+            sender_color: '#f5e6a3',
+            font_family: 'Playfair Display',
+            font_size: 16
+        };
+
+        function typeWriterEffect(element, html, speed = 25) {
+            element.classList.add("typing");
+            element.innerHTML = "";
+
+            let tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            let nodes = Array.from(tempDiv.childNodes);
+            let i = 0;
+
+            function typeNode(node) {
+                if (node.nodeType === 3) {
+                    // Text node
+                    let text = node.textContent;
+                    let j = 0;
+
+                    function typeChar() {
+                        if (j < text.length) {
+                            element.innerHTML += text.charAt(j);
+                            window.scrollTo(0, document.body.scrollHeight);
+                            j++;
+                            setTimeout(typeChar, speed);
+                        } else {
+                            i++;
+                            typeNext();
+                        }
+                    }
+                    typeChar();
+                } else if (node.nodeType === 1) {
+                    // Element node (like <br> or <span>)
+                    element.appendChild(node.cloneNode(false));
+                    let parent = element.lastChild;
+
+                    let children = Array.from(node.childNodes);
+                    let k = 0;
+
+                    function typeChild() {
+                        if (k < children.length) {
+                            let child = children[k];
+                            if (child.nodeType === 3) {
+                                let text = child.textContent;
+                                let j = 0;
+
+                                function typeChar() {
+                                    if (j < text.length) {
+                                        parent.innerHTML += text.charAt(j);
+                                        j++;
+                                        setTimeout(typeChar, speed);
+                                    } else {
+                                        k++;
+                                        typeChild();
+                                    }
+                                }
+                                typeChar();
+                            } else {
+                                parent.appendChild(child.cloneNode(true));
+                                k++;
+                                typeChild();
+                            }
+                        } else {
+                            i++;
+                            typeNext();
+                        }
+                    }
+                    typeChild();
+                }
+            }
+
+            function typeNext() {
+                if (i < nodes.length) {
+                    typeNode(nodes[i]);
+                }
+                else {
+                    element.classList.remove("typing");
+                }
+            }
+
+            typeNext();
+        }
+
+        function applyConfig(config) {
+            const c = { ...defaultConfig, ...config };
+
+            const user = getParams();
+
+
+            // Greeting
+            document.getElementById('el-greeting').textContent = c.greeting_title;
+            let message = c.message_text.replace(/\n/g, "<br>");
+
+            if (user.to) {
+                message = message.replace(
+                    /Assalamualaikum,/,
+                    `Assalamualaikum <span style="color:#d4af37;">${user.to}</span> ✨,`
+                );
+            } else {
+                message = message.replace(
+                    /Assalamualaikum,/,
+                    `Assalamualaikum <span style="color:#d4af37;">Dear one</span> ✨,`
+                );
+            }
+
+            document.getElementById('el-sender').textContent = user.from || c.sender_name;
+            document.getElementById('el-nick').textContent = user.nick || c.nick_name;
+
+
+            const messageElement = document.getElementById("el-message");
+            setTimeout(() => {
+                typeWriterEffect(messageElement, message, 25);
+            }, 800);
+
+
+
+            // Colors
+            const wrapper = document.getElementById('app-wrapper');
+            wrapper.style.background = `linear-gradient(160deg, ${c.background_color} 0%, ${adjustBrightness(c.background_color, 20)} 30%, ${c.background_color} 100%)`;
+
+            const card = document.querySelector('.card-envelope');
+            if (card) card.style.background = `linear-gradient(170deg, ${c.card_color}, ${adjustBrightness(c.card_color, -10)})`;
+
+            document.getElementById('el-message').style.color = c.text_color;
+            document.getElementById('el-sender').style.color = c.accent_color;
+            document.getElementById('el-nick').style.color = c.sender_color;
+
+            // Fonts
+            const titleFont = `${c.font_family}, Playfair Display, serif`;
+            const bodyFont = `${c.font_family}, Cormorant Garamond, serif`;
+            document.getElementById('el-greeting').style.fontFamily = titleFont;
+            document.getElementById('el-sender').style.fontFamily = titleFont;
+            document.getElementById('el-message').style.fontFamily = bodyFont;
+
+            // Font size
+            const base = c.font_size || 16;
+            document.getElementById('el-greeting').style.fontSize = `${base * 3.2}px`;
+            document.getElementById('el-message').style.fontSize = `${base * 1.1}px`;
+            document.getElementById('el-sender').style.fontSize = `${base * 1.75}px`;
+            document.getElementById('el-nick').style.fontSize = `${base * 0.9}px`;
+        }
+
+        function adjustBrightness(hex, amount) {
+            hex = hex.replace('#', '');
+            let r = Math.min(255, Math.max(0, parseInt(hex.substring(0, 2), 16) + amount));
+            let g = Math.min(255, Math.max(0, parseInt(hex.substring(2, 4), 16) + amount));
+            let b = Math.min(255, Math.max(0, parseInt(hex.substring(4, 6), 16) + amount));
+            return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+        }
+
+        function makeColorMutable(key) {
+            return {
+                get: () => (window.elementSdk.config && window.elementSdk.config[key]) || defaultConfig[key],
+                set: (v) => { window.elementSdk.setConfig({ [key]: v }); }
+            };
+        }
+
+
+        lucide.createIcons();
+
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+
+            return {
+                to: params.get("to") ? atob(params.get("to")) : null,
+                from: params.get("from") ? atob(params.get("from")) : null,
+                nick: params.get("nick") ? atob(params.get("nick")) : null
+            };
+        }
+
+
+        applyConfig(defaultConfig);
+
+
+
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+
+            if (music.paused) {
+                music.play().catch(() => { });
+            } else {
+                music.pause();
+            }
+        }
+
+
+        document.getElementById("teddyBox").addEventListener("click", () => {
+            const music = document.getElementById("bg-music");
+            const label = document.querySelector("#teddyBox div:last-child");
+            const teddy = document.getElementById("teddyBox");
+
+            if (music.paused) {
+                music.volume = 0.4;
+                music.play().catch(() => { });
+                label.innerText = "Playing 🎶";
+                teddy.classList.add("playing");   // ✅ ADD THIS
+            } else {
+                music.pause();
+                label.innerText = "Paused ⏸️";
+                teddy.classList.remove("playing"); // ✅ ADD THIS
+            }
+        });
+    </script>
+   <div style="text-align:center; margin-top:10px; margin-bottom:50px;">
+
+    <div style="
+        display:inline-block;
+        padding: 15px 25px;
+        border-radius: 15px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+    ">
+
+        <a href="generators.html"
+            style="
+                background: linear-gradient(135deg, #d4af37, #f5e6a3);
+                color: black;
+                padding: 12px 26px;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: bold;
+                display: inline-block;
+                box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+                transition: 0.3s;
+            "
+            onmouseover="this.style.transform='scale(1.08)'"
+            onmouseout="this.style.transform='scale(1)'"
+        >
+            ✨ Create Your Own Eid Wish
+        </a>
+
+    </div>
+
+</div>
+</body>
+
+</html>

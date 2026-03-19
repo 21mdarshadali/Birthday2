@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eid Link Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md text-center">
+
+        <h1 class="text-3xl font-bold mb-6">✨ Create Eid Wish</h1>
+
+        <!-- Receiver -->
+        <input id="to" type="text" required placeholder="Receiver Name (e.g. Sameer)"
+            class="w-full p-3 rounded-lg text-black mb-4">
+
+        <!-- Sender -->
+        <input id="from" type="text" required placeholder="Your Name (e.g. Aman)"
+            class="w-full p-3 rounded-lg text-black mb-4">
+
+        <!-- Nick -->
+        <input id="nick" type="text" placeholder="Nickname (optional)" class="w-full p-3 rounded-lg text-black mb-4">
+
+        <!-- Button -->
+        <button onclick="generateLink()"
+            class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-3 rounded-lg w-full font-semibold">
+            Generate Link 🚀
+        </button>
+
+        <!-- Output -->
+        <textarea id="output" readonly class="w-full p-3 rounded-lg text-black h-20 mt-4"></textarea>
+
+        <!-- Copy -->
+        <button onclick="copyLink()" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg w-full mt-3">
+            Copy Link 📋
+        </button>
+
+    </div>
+
+
+    <script>
+        function generateLink() {
+            const to = document.getElementById("to").value.trim();
+            const from = document.getElementById("from").value.trim();
+            const nick = document.getElementById("nick").value.trim();
+
+            if (!to || !from) {
+                alert("Please fill Receiver and Sender name");
+                return;
+            }
+
+            const baseUrl = "http://127.0.0.1:5500/EidWish.html";
+
+            const link = `${baseUrl}?to=${btoa(to)}&from=${btoa(from)}${nick ? `&nick=${btoa(nick)}` : ""}`;
+            document.getElementById("output").value = link;
+        }
+
+        function copyLink() {
+            const output = document.getElementById("output");
+            output.select();
+            document.execCommand("copy");
+            alert("Link copied! ✅");
+        }
+    </script>
+</body>
+
+</html>
