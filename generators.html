@@ -52,7 +52,7 @@
                 return;
             }
 
-            const baseUrl = "http://127.0.0.1:5500/EidWish.html";
+            const baseUrl = "https://eid-wish-2026.netlify.app/EidWish.html";
 
             const link = `${baseUrl}?to=${btoa(to)}&from=${btoa(from)}${nick ? `&nick=${btoa(nick)}` : ""}`;
             document.getElementById("output").value = link;
